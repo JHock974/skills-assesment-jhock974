@@ -1,34 +1,33 @@
 package com.lining.skills.assessment.skills_assesement.card;
 
 import com.lining.skills.assessment.skills_assesement.enums.Color;
-import com.lining.skills.assessment.skills_assesement.enums.Rank;
 import com.lining.skills.assessment.skills_assesement.enums.Suit;
 
 public class Card {
 
-	private Suit suit;
-	private Rank rank;
+	private String suit;
+	private String rank;
 	private Color color;
 
-	public Card(Rank rank, Suit suit) {
+	public Card(String rank, String suit) {
 		this.rank = rank;
 		this.suit = suit;
 		this.color = Color.getColor(suit);
 	}
 
-	public Suit getSuit() {
+	public String getSuit() {
 		return suit;
 	}
 
-	public void setSuit(Suit suit) {
+	public void setSuit(String suit) {
 		this.suit = suit;
 	}
 
-	public Rank getRank() {
+	public String getRank() {
 		return rank;
 	}
 
-	public void setRank(Rank rank) {
+	public void setRank(String rank) {
 		this.rank = rank;
 	}
 
@@ -38,6 +37,17 @@ public class Card {
 
 	public void setColor(Color color) {
 		this.color = color;
-	}	
+	}
+
+	public static boolean isValidSuit(String suit) {
+		if(Suit.HEARTS.getSuit().equals(suit) ||
+				Suit.DIAMONDS.getSuit().equals(suit) ||
+				Suit.CLUBS.getSuit().equals(suit) ||
+				Suit.SPADES.getSuit().equals(suit)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }
